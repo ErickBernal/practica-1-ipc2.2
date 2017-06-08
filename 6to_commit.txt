@@ -1,0 +1,22 @@
+Commit:  un commit nos organiza cada cambio, con el fin de 
+	 estruccturar el crecimiento de la aplicacion por verciones.
+Merge:	podriamos visualiar a la fucion merge como una estanteria,
+	la cual nos permite agrupar aplicaciones con un sentido en comun.
+
+Push: 	al momento de modificar un archivo en nuestro repositorio local
+	este no modifica el repositorio en la nueve, hasque que resiva una 
+	instruccion, la cual se denota como git push origin master/merge
+
+pull: 	es la petecion que genera un usuario que ha descargado el fork
+	y asu vez a hecho modificaciones (commit), por ende este solicita 
+	al propietario, que agrege al programa pricipal las modificaciones 
+	que el ha realizado.
+
+como usar ramas:
+	las ramas se crean con el fin de brindar una organizacion mas optima
+	para el usuario, por ende si uno tiene una aplicacion vercionada
+	y desea trabajar en una vercion en especifico, se recomienda
+	sacar esta de la rama y llevarla a una nueva, para obtener mayor
+	libertar al momento de trabajar sin necesidad de agrupar todo
+	en la rama master
+	
