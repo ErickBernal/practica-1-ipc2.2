@@ -34,6 +34,12 @@ public class interfaz_IPC2 extends javax.swing.JFrame {
         textfiel_catetoB = new javax.swing.JTextField();
         textfiel_hipo = new javax.swing.JTextField();
         btn_hipotenusa = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        textfiel_palabra = new javax.swing.JTextField();
+        btn_palabra = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
@@ -104,6 +110,64 @@ public class interfaz_IPC2 extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(java.awt.SystemColor.activeCaption);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Segundo Programa");
+
+        jLabel3.setText("calcula si una palabra cuenta");
+
+        jLabel4.setText("con 5 vocales con o sin acento");
+
+        textfiel_palabra.setText("Ingrese palabra");
+        textfiel_palabra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textfiel_palabraMouseClicked(evt);
+            }
+        });
+
+        btn_palabra.setText("comprobar");
+        btn_palabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_palabraActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textfiel_palabra)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(btn_palabra)))
+                        .addGap(0, 45, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(textfiel_palabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_palabra)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Erick Javier Bernal Orellana");
 
@@ -119,8 +183,11 @@ public class interfaz_IPC2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
                     .addComponent(jLabel16)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(391, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +197,9 @@ public class interfaz_IPC2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(229, Short.MAX_VALUE))
         );
 
@@ -166,6 +235,35 @@ public class interfaz_IPC2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         textfiel_catetoB.setText("");
     }//GEN-LAST:event_textfiel_catetoBMouseClicked
+
+//---------------------------SEGUNDO PROGRAMA------------------------------------------------------------------------------
+    private void btn_palabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_palabraActionPerformed
+        // TODO add your handling code here:
+        indice = 0;
+        contador_vocales = 0;
+
+        try {
+            palabra = textfiel_palabra.getText().toCharArray();
+            do {
+                busca_vocales(palabra[indice]);
+                indice++;
+            } while (indice < palabra.length);
+
+            if (contador_vocales == 5) {
+                JOptionPane.showMessageDialog(null, "la palabra:   " + textfiel_palabra.getText() + "  °°SI CUMPLE°°");
+            } else {
+                JOptionPane.showMessageDialog(null, "la palabra:   " + textfiel_palabra.getText() + "  °°NO CUMPLE°°");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese una palabra");
+
+        }
+        indice = 0;
+    }//GEN-LAST:event_btn_palabraActionPerformed
+
+    private void textfiel_palabraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textfiel_palabraMouseClicked
+        textfiel_palabra.setText("");
+    }//GEN-LAST:event_textfiel_palabraMouseClicked
 
     public void busca_vocales(int ent) {
         if (ent == 65 || ent == 69 || ent == 73 || ent == 79 || ent == 85 // A-u
@@ -212,12 +310,18 @@ public class interfaz_IPC2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_hipotenusa;
+    private javax.swing.JButton btn_palabra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField textfiel_catetoA;
     private javax.swing.JTextField textfiel_catetoB;
     private javax.swing.JTextField textfiel_hipo;
+    private javax.swing.JTextField textfiel_palabra;
     // End of variables declaration//GEN-END:variables
 }
